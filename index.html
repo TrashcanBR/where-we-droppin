@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where we droppin</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 36px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #ff3c00;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    button:hover {
+      background-color: #e63600;
+    }
+    #location {
+      margin-top: 30px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #00ffb7;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Where we droppin?</h1>
+  <button onclick="getRandomLocation()">Drop Here!</button>
+  <div id="location"></div>
+
+  <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+
+  <script>
+    const locations = [
+      { name: "Dam", grid: "A1" },
+      { name: "Military Base", grid: "C1" },
+      { name: "Airport", grid: "B2" },
+      { name: "Storage Town", grid: "C2" },
+      { name: "Quarry", grid: "D1" },
+      { name: "TV Station", grid: "D2" },
+      { name: "Hospital", grid: "E3" },
+      { name: "Downtown", grid: "F3" },
+      { name: "Stadium", grid: "E2" },
+      { name: "Train Station", grid: "G3" },
+      { name: "Superstore", grid: "C3" },
+      { name: "Promenade East", grid: "G4" },
+      { name: "Promenade West", grid: "F4" },
+      { name: "Boneyard", grid: "D4" },
+      { name: "Hills", grid: "E5" },
+      { name: "Farmland", grid: "H5" },
+      { name: "Lumber", grid: "G5" },
+      { name: "Prison (Gulag)", grid: "H6" },
+      { name: "Port", grid: "G7" },
+      { name: "Park", grid: "F6" },
+      { name: "Summit", grid: "A2" },
+      { name: "Railyard", grid: "D3" },
+      { name: "Bank HQ", grid: "F3" },
+      { name: "Airplane Hangars", grid: "B2" },
+      { name: "Police Station", grid: "E3" },
+      { name: "Fire Station", grid: "D3" },
+      { name: "Bus Station", grid: "E4" },
+      { name: "Residential Blocks", grid: "F4" }
+    ];
+
+    function getRandomLocation() {
+      const randomIndex = Math.floor(Math.random() * locations.length);
+      const selected = locations[randomIndex];
+      document.getElementById("location").innerText = `${selected.grid}: ${selected.name}`;
+      document.getElementById("clickSound").play();
+    }
+  </script>
+</body>
+</html>
